@@ -104,6 +104,9 @@ class Service(AbstractObject):
             latest_image = self._pull(f"{current_image_name}:{current_tag}")
         except ConnectionError:
             return False
+        
+        if latest_image == None:
+            return False
 
         latest_sha = self._get_digest(latest_image)
         self._latest_sha = latest_sha
