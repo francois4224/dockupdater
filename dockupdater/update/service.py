@@ -104,7 +104,7 @@ class Service(AbstractObject):
             latest_image = self._pull(f"{current_image_name}:{current_tag}")
         except ConnectionError:
             return False
-        
+
         if latest_image is None:
             return False
         
