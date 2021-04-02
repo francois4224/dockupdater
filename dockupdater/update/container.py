@@ -78,6 +78,9 @@ class Container(AbstractObject):
         except ConnectionError:
             return False
 
+        if latest_image is None:
+            return False
+
         latest_id = get_id_from_image(latest_image)
 
         return self._current_id != latest_id
